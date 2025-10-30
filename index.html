@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="es">
+<head>
+		<meta charset="utf-8">
+		<title>Registro de Usuarios</title>
+		<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<h3>Registro de Usuarios</h3>
+		<form action="guardar.php" method="POST" class="user-form">
+			<div class="form-row">
+				<input type="text" name="nombre" placeholder="Nombre completo" required>
+				<input type="email" name="correo" placeholder="Correo electrónico" required>
+			</div>
+			<div>
+				<button type="submit" class="btn">Guardar</button>
+				<a class="btn secondary" href="usuarios.php">Ver lista de usuarios</a>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

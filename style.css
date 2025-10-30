@@ -1,0 +1,73 @@
+/* Estilos básicos para la app de usuarios */
+:root{
+  /* Paleta Katpuchim (clara/oscura combinada) */
+  --bg: #f6fbfc;        /* fondo muy claro, con matiz frío */
+  --card: rgba(255,255,255,0.92); /* tarjeta translúcida */
+  --accent: #165f6a;    /* azul verdoso oscuro para acentos */
+  --muted: #69707a;     /* gris suave para textos secundarios */
+  --success: #2f9e7a;   /* verde agradable */
+  --danger: #e05353;    /* rojo coral para errores */
+}
+*{box-sizing:border-box}
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  color:#222;
+  margin:0;
+  /* Centro vertical/horizontal y fondo animado */
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  /* Imagen de fondo: usa una imagen local llamada `bg.jpg` si existe; si no, usa la imagen pública de Unsplash como fallback */
+  background-color:var(--bg);
+  background-image: url('bg.jpg'), url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1600&q=60');
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:50% 50%;
+  /* animar el background-position para efecto suave */
+  animation: bgMove 30s linear infinite;
+}
+.container{
+  max-width:900px;
+  margin:0 16px;
+  width:100%;
+  max-width:760px;
+  background: rgba(255,255,255,0.86); /* ligero translucido para ver el fondo */
+  padding:22px;
+  border-radius:10px;
+  box-shadow:0 8px 24px rgba(20,20,40,0.12);
+  transform: translateY(0);
+  animation: floatUp .5s ease-out both;
+}
+h2,h3{margin-top:0;color:var(--accent)}
+.form-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.form-row input[type="text"],.form-row input[type="email"],input[type="text"],input[type="email"]{
+  padding:8px 10px;border:1px solid #ddd;border-radius:4px;flex:1;min-width:160px
+}
+.btn{display:inline-block;padding:8px 12px;border-radius:4px;border:0;background:var(--accent);color:#fff;text-decoration:none}
+.btn.secondary{background:#eee;color:#222;border:1px solid #ddd}
+.btn.danger{background:var(--danger)}
+.table{width:100%;border-collapse:collapse;margin-top:10px}
+.table th,.table td{padding:10px;border:1px solid #e6e6e6;text-align:left}
+.actions a{margin-right:8px;text-decoration:none}
+.small{font-size:0.9rem;color:var(--muted)}
+@media (max-width:600px){
+  .form-row{flex-direction:column}
+  .container{padding:12px}
+}
+
+/* Animaciones */
+@keyframes bgMove{
+  0%{background-position:10% 50%}
+  50%{background-position:90% 50%}
+  100%{background-position:10% 50%}
+}
+@keyframes floatUp{
+  from{opacity:0;transform:translateY(12px) scale(.995)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* Mejora visual para cabeceras y enlaces */
+h2,h3{margin-top:0;color:var(--accent);text-shadow:0 1px 0 rgba(255,255,255,0.6)}
+a.btn{margin-right:8px}
+
